@@ -22,7 +22,7 @@
 
   <header class="site-head">
     <a class="brand" href="./"><img src="assets/favicon-32.png" alt="" /> lodestone</a>
-    <a class="head-link" href="support.html">Support</a>
+    <a class="head-link" href="support.html" data-sheet="supportSheet">Support</a>
   </header>
 
   <!-- ============================================================ the tuner -->
@@ -141,6 +141,29 @@
     </div>
   </section>
 
+  <!-- ============================================================ the story -->
+  <section class="section story">
+    <div class="wrap">
+      <p class="eyebrow">Why I made this</p>
+      <div class="story-body">
+        <p>I came to music late. For most of my life I figured it just wasn't for
+          me. Being "a music person" felt like something you either were or weren't,
+          and I wasn't.</p>
+        <p>Then a couple of years ago, something flipped. I decided I'd become
+          someone who plays. I started with violin, stuck with it for a year, and
+          got to a place I was proud of. Then a stretch of piano. Now I'm almost two
+          years into guitar, and I play every day.</p>
+        <p>Here's what I found: anybody can play music. You just need a little space,
+          some good coaching, and a bit of perseverance. That's really it. Music has
+          become one of my favorite things, and I think more people should get to
+          feel it.</p>
+        <p>So I made the tuner I always wanted, the one I actually love picking up
+          every day. I hope you love it too. 🙏</p>
+        <p class="sig">peace,<br />Paul</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================================================ download -->
   <section class="section cta">
     <div class="wrap">
@@ -148,7 +171,7 @@
       <h2>Coming to the App Store</h2>
       <p class="lead" style="margin-bottom:26px">Lodestone is on its way to iPhone
         and iPad. Want a note when it lands?</p>
-      <a class="badge soon" href="support.html"> Get in touch →</a>
+      <a class="badge soon" href="mailto:pvm@enchant.co?subject=Notify%20me%20when%20Lodestone%20launches"> Get in touch →</a>
     </div>
   </section>
 
@@ -157,14 +180,46 @@
       <span>© <span id="y"></span> Lodestone</span>
       <span class="spacer"></span>
       <nav>
-        <a href="support.html">Support</a>
+        <a href="support.html" data-sheet="supportSheet">Support</a>
         <a href="privacy.html">Privacy</a>
-        <a href="mailto:paulmederos@me.com?subject=Lodestone">Contact</a>
+        <a href="mailto:pvm@enchant.co?subject=Lodestone">Contact</a>
       </nav>
     </div>
   </footer>
 
+  <!-- ===================================================== support bottom sheet -->
+  <div class="sheet-scrim" id="scrim" hidden></div>
+  <aside class="sheet" id="supportSheet" role="dialog" aria-modal="true"
+         aria-labelledby="sheetTitle" aria-hidden="true" tabindex="-1" hidden>
+    <button class="sheet-grab" id="sheetGrab" aria-label="Close support"></button>
+    <div class="sheet-body">
+      <h2 id="sheetTitle">Support</h2>
+      <p class="sheet-sub">Questions, bugs, or ideas? I read and answer every message
+        myself, usually within a couple of days.</p>
+      <a class="sheet-email" href="mailto:pvm@enchant.co?subject=Lodestone">pvm@enchant.co</a>
+
+      <div class="sheet-faq">
+        <div class="card">
+          <p class="q">What instruments does it work with?</p>
+          <p>It's chromatic, so it hears whatever you play: guitar, ukulele, bass,
+            violin, banjo, mandolin, and every alternate tuning. Nothing to pick.</p>
+        </div>
+        <div class="card">
+          <p class="q">Do I need to set anything up?</p>
+          <p>No. Open it and it's already listening. Play a string and the screen
+            shows you the note and how close you are.</p>
+        </div>
+        <div class="card">
+          <p class="q">Does it record or send my audio?</p>
+          <p>No. Your mic is used only to detect the note, live on your device.
+            Nothing is recorded or sent. <a href="privacy.html">Privacy policy</a>.</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
   <script src="tuner.js"></script>
+  <script src="sheet.js"></script>
 </body>
 </html>
