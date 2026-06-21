@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Lodestone — Support</title>
+<meta name="description" content="Support, FAQ and contact for Lodestone, a beautiful tuner for guitar, ukulele, bass and more." />
+<meta name="theme-color" content="#0b0917" />
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand" href="./"><img src="assets/favicon-32.png" alt="" /> lodestone</a>
+    <a class="head-link" href="./">← Home</a>
+  </header>
+
+  <main class="doc">
+    <div class="rainbow-bar"></div>
+    <h1 style="margin-top:30px">Support</h1>
+    <p class="tag">Questions, bugs, or ideas for Lodestone? You're in the right place.</p>
+
+    <div class="card">
+      <p>I read and answer every message myself. The fastest way to reach me is
+        email, and I usually reply within a couple of days.</p>
+      <p class="email"><a href="mailto:paulmederos@me.com?subject=Lodestone">paulmederos@me.com</a></p>
+    </div>
+
+    <h2>Frequently asked</h2>
+
+    <div class="card">
+      <p class="q">What instruments does it work with?</p>
+      <p>Lodestone is a <em>chromatic</em> tuner, so it hears whatever you play:
+        guitar (standard, drop, and alternate tunings), ukulele, bass, violin,
+        cello, banjo, mandolin, and more. There's no instrument or tuning to pick.</p>
+    </div>
+
+    <div class="card">
+      <p class="q">Do I need to set anything up?</p>
+      <p>No. Open the app and it's already listening. Play a string and the screen
+        shows you the note and how close you are to in tune.</p>
+    </div>
+
+    <div class="card">
+      <p class="q">How do I read it?</p>
+      <p>The big letter is your nearest note, and the whole screen takes on that
+        note's color. The label tells you how many cents sharp or flat you are; as
+        you turn the tuning peg, the particles tighten and the orb slides toward
+        center. When you're in tune, everything settles, the edges glow, and you
+        feel a gentle tap.</p>
+    </div>
+
+    <div class="card">
+      <p class="q">It isn't hearing my instrument.</p>
+      <p>Make sure Lodestone has microphone access (iOS Settings → Lodestone →
+        Microphone), play a clear single note, and keep loud background noise down.
+        On very quiet or muted strings it waits for a confident reading rather than
+        guessing.</p>
+    </div>
+
+    <div class="card">
+      <p class="q">Does it record or send my audio?</p>
+      <p>No. Lodestone uses your microphone only to detect the note you're playing.
+        Nothing is recorded, stored, or sent anywhere. See the
+        <a href="privacy.html">privacy policy</a> for details.</p>
+    </div>
+
+    <div class="card">
+      <p class="q">Is the tuner on this page the real app?</p>
+      <p>It's the same pitch engine and design, running live in your browser using
+        your mic. The iPhone app adds the haptics, the always-on listening, and the
+        full-screen experience.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="y"></span> Lodestone</span>
+      <span class="spacer"></span>
+      <nav>
+        <a href="./">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="mailto:paulmederos@me.com?subject=Lodestone">Contact</a>
+      </nav>
+    </div>
+  </footer>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
