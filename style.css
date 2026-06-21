@@ -57,7 +57,9 @@ a:hover { color: #c4d2ff; }
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
 .site-head {
-  position: absolute; top: 0; left: 0; right: 0; z-index: 5;
+  /* above the .start tuner overlay (z 6) so the nav links stay tappable;
+     still below the sheet/scrim (z 40) so the sheet covers the header */
+  position: absolute; top: 0; left: 0; right: 0; z-index: 20;
   display: flex; align-items: center; justify-content: space-between;
   padding: 22px 26px;
   pointer-events: none;
