@@ -73,6 +73,8 @@ a:hover { color: #c4d2ff; }
 .brand img { width: 22px; height: 22px; border-radius: 6px; display: block; }
 .head-link { color: rgba(255,255,255,0.5); font-size: 0.82rem; }
 .head-link:hover { color: rgba(255,255,255,0.85); }
+.head-actions { display: inline-flex; align-items: center; gap: 16px; pointer-events: none; }
+.head-actions a { pointer-events: auto; }
 
 /* ========================================================== the tuner stage */
 
@@ -302,6 +304,14 @@ p  { margin: 0 0 16px; color: var(--soft); }
 
 /* download CTA */
 .cta { text-align: center; }
+.appstore {
+  display: inline-block; line-height: 0;
+  border-radius: 9px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.appstore img { display: block; width: 160px; height: auto; }
+.appstore:hover { transform: translateY(-1px); }
+.appstore:focus-visible { outline: 2px solid rgba(255,255,255,0.6); outline-offset: 4px; }
 
 /* Enchant-style button: black round-rect, white text */
 .btn {
