@@ -108,7 +108,7 @@ export function mountStrings(root, { tuningKey = "guitar.standard", selector = t
       const uniforms = {
         uX0: { value: (i - (n - 1) / 2) * SPACING }, uTaper: { value: TAPER }, uLen: { value: LEN },
         uHalfW: { value: 0.3 }, uAmp: { value: 0 }, uCore: { value: thickness(midi) },
-        uBase: { value: 0.34 }, uGlow: { value: 0 }, uFade: { value: 0 }, uTime: { value: 0 },
+        uBase: { value: 0.46 }, uGlow: { value: 0 }, uFade: { value: 0 }, uTime: { value: 0 },
         uColor: { value: new THREE.Color(1, 1, 1) },
       };
       const [r, g, b] = rgb(hue(midi), 0.5, 1);
@@ -178,7 +178,7 @@ export function mountStrings(root, { tuningKey = "guitar.standard", selector = t
     s.label.classList.add("hit");
     setTimeout(() => s.label.classList.remove("hit"), 180);
     if (!micOn) showNote(s.midi, null);
-    flood(hue(s.midi), 0.5, 0.34);
+    flood(hue(s.midi), 0.45, 0.26);
     clearTimeout(play.fade);
     play.fade = setTimeout(() => { if (!micOn) flood(null); }, 1600);
   }
@@ -298,8 +298,16 @@ export function mountStrings(root, { tuningKey = "guitar.standard", selector = t
   }
 
   // ---- frame loop (only while on screen) -----------------------------------------
-  let visible = true;
-  new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) requestAnimationFrame(frame); }).observe(root);
+  let visible = true, strummed = false;
+  new IntersectionObserver(([e]) => {
+    visible = e.isIntersecting;
+    if (!visible) return;
+    requestAnimationFrame(frame);
+    if (!strummed && !reduceMotion) {            // a silent strum the first time it's seen
+      strummed = true;
+      strings.forEach((s, i) => setTimeout(() => { s.pluckT = now(); }, 600 + i * 70));
+    }
+  }, { threshold: 0.6 }).observe(root);
 
   function frame() {
     if (!visible) return;

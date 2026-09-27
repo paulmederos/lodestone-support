@@ -12,7 +12,9 @@ table.notes th, table.notes td { text-align: left; padding: 11px 10px; border-bo
 table.notes th { font: 600 0.78rem/1 var(--display); color: var(--muted); letter-spacing: 0.02em; }
 table.notes td { color: var(--soft); }
 table.notes td.note { font: 600 1.15rem/1 var(--display); color: #fff; }
-table.notes td:nth-child(4) { white-space: nowrap; }
+table.notes td:nth-child(3) { white-space: nowrap; }
+table.notes td.note sub { font-size: 0.6em; font-weight: 500; opacity: 0.6; margin-left: 1px; }
+table.notes .dim { color: var(--muted); font-size: 0.86em; margin-left: 4px; }
 .table-note { font-size: 0.86rem; color: var(--muted); margin: 0 0 22px; }
 .section h3 { font-size: 1.1rem; margin: 26px 0 4px; }
 
@@ -44,5 +46,14 @@ ol.steps li::marker { font-family: var(--display); color: var(--muted); }
   .tuning-hero { padding-top: 12px; }
   .tuning-hero .answer { font-size: 1.08rem; }
   table.notes th, table.notes td { padding: 10px 5px; font-size: 0.9rem; }
-  table.notes td:nth-child(5) { font-size: 0.84rem; color: var(--muted); }
+  table.notes .dim { display: block; margin: 2px 0 0; }
 }
+
+.app-line { text-align: center; margin: 14px 0 0; font-size: 0.95rem; color: var(--muted); }
+.app-line a { color: var(--text); font-weight: 600; }
+.diagram { margin: 4px 0 18px; }
+.diagram img { width: 100%; height: auto; display: block; border-radius: 22px; }
+ul.tuning-list { list-style: none; padding: 0; margin: 0; columns: 2 220px; column-gap: 28px; }
+ul.tuning-list li { padding: 7px 0; break-inside: avoid; border-bottom: 1px solid var(--hair); }
+ul.tuning-list a { color: var(--text); font-family: var(--display); font-weight: 600; }
+ul.tuning-list .n { color: var(--muted); font-family: var(--display); font-size: 0.86rem; letter-spacing: 0.04em; margin-left: 6px; }

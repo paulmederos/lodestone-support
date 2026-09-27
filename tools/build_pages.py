@@ -52,38 +52,38 @@ PAGES = [
 
 ALTERNATES = [
   dict(slug="drop-d", tname="Drop D", strings=[38, 45, 50, 55, 59, 64],
-    answer="Drop D tuning is D A D G B E: standard tuning with the 6th string lowered a whole step, from E to D.",
+    answer="Drop D tuning is D A D G B E, from the thickest string to the thinnest: standard tuning with the 6th string lowered a whole step, from E to D.",
     body=["With the low string on D, the bottom three strings (D A D) make a power chord you can play with one finger, and the open low D gives you a deeper note to lean on."],
     howto=["Play the open 4th string (D). Lower the 6th string until it rings the same note an octave below.",
            "Check it with harmonics: the 12th-fret harmonic on the 6th string should match the open 4th string."],
     faq=[("How far do I lower the low E for drop D?", "One whole step, which is two half steps or 200 cents: from E2 (82.41 Hz) down to D2 (73.42 Hz). The other five strings stay in standard tuning.")]),
   dict(slug="half-step-down", tname="Half step down", strings=[39, 44, 49, 54, 58, 63], flats=True,
-    answer="Half step down tuning is E♭ A♭ D♭ G♭ B♭ E♭: every string lowered one half step from standard. It's also called E♭ standard.",
+    answer="Half step down tuning is E♭ A♭ D♭ G♭ B♭ E♭, from the thickest string to the thinnest: every string lowered one half step from standard. It's also called E♭ standard.",
     body=["The chord shapes don't change, so everything you know in standard tuning still works. It all just sounds a half step lower, and the strings feel a little looser."],
     howto=["Lower every string by one half step (100 cents): E to E♭, A to A♭, D to D♭, G to G♭, B to B♭, E to E♭."],
     faq=[("Is half step down the same as E flat tuning?", "Yes. Half step down, E♭ standard and E♭ tuning all mean E♭ A♭ D♭ G♭ B♭ E♭.")]),
   dict(slug="d-standard", tname="D standard", strings=[38, 43, 48, 53, 57, 62],
-    answer="D standard tuning is D G C F A D: every string lowered a whole step from standard.",
+    answer="D standard tuning is D G C F A D, from the thickest string to the thinnest: every string lowered a whole step from standard.",
     body=["Like half step down, the chord shapes stay the same and everything sounds lower, here by a whole step."],
     howto=["Lower every string by a whole step (200 cents): E to D, A to G, D to C, G to F, B to A, E to D."],
     faq=[("How is D standard different from drop D?", "Drop D lowers only the 6th string (D A D G B E). D standard lowers all six strings a whole step (D G C F A D).")]),
   dict(slug="drop-c", tname="Drop C", strings=[36, 43, 48, 53, 57, 62],
-    answer="Drop C tuning is C G C F A D: D standard with the 6th string dropped another whole step, to C.",
+    answer="Drop C tuning is C G C F A D, from the thickest string to the thinnest: D standard with the 6th string dropped another whole step, to C.",
     body=["It works like drop D, a whole step lower: the bottom three strings (C G C) make a one-finger power chord."],
     howto=["Tune to D standard first (every string down a whole step).", "Then lower the 6th string one more whole step, until it rings an octave below the open 4th string (C)."],
     faq=[("How do I get from standard tuning to drop C?", "Lower every string a whole step, then lower the 6th string one more whole step. You end up with C G C F A D.")]),
   dict(slug="dadgad", tname="DADGAD", strings=[38, 45, 50, 55, 57, 62],
-    answer="DADGAD tuning is D A D G A D: from standard, lower the 6th, 2nd and 1st strings a whole step.",
+    answer="DADGAD tuning is D A D G A D, from the thickest string to the thinnest. From standard, lower the 6th, 2nd and 1st strings a whole step.",
     body=["The open strings make a chord that's neither major nor minor, which is why DADGAD is loved for Celtic and folk fingerstyle playing."],
     howto=["Lower the 6th string from E to D.", "Lower the 2nd string from B to A.", "Lower the 1st string from E to D. The A, D and G strings stay put."],
     faq=[("Is DADGAD major or minor?", "Neither. The open strings are D, A and G, with no third, so they sound open and ringing (a Dsus4 chord).")]),
   dict(slug="open-g", tname="Open G", strings=[38, 43, 50, 55, 59, 62],
-    answer="Open G tuning is D G D G B D: from standard, lower the 6th, 5th and 1st strings a whole step. Strum the open strings and you hear a G major chord.",
+    answer="Open G tuning is D G D G B D, from the thickest string to the thinnest. From standard, lower the 6th, 5th and 1st strings a whole step. Strum the open strings and you hear a G major chord.",
     body=["Because the open strings already make a chord, open G is a favorite for slide guitar: lay the slide across any fret for a major chord."],
     howto=["Lower the 6th string from E to D.", "Lower the 5th string from A to G.", "Lower the 1st string from E to D. The D, G and B strings stay put."],
     faq=[("What chord do the open strings make in open G?", "G major: the notes are G, B and D.")]),
   dict(slug="open-d", tname="Open D", strings=[38, 45, 50, 54, 57, 62],
-    answer="Open D tuning is D A D F♯ A D: lower the 6th, 2nd and 1st strings a whole step and the 3rd string a half step. The open strings ring a D major chord.",
+    answer="Open D tuning is D A D F♯ A D, from the thickest string to the thinnest. Lower the 6th, 2nd and 1st strings a whole step and the 3rd string a half step. The open strings ring a D major chord.",
     body=["Open D keeps the root on both the lowest and highest strings, so open chords sound full and wide."],
     howto=["Lower the 6th string from E to D.", "Lower the 3rd string from G to F♯ (a half step).", "Lower the 2nd string from B to A.", "Lower the 1st string from E to D."],
     faq=[("What chord do the open strings make in open D?", "D major: the notes are D, F♯ and A.")]),
@@ -143,6 +143,28 @@ PAGES += [
          ("Which violin string should I tune first?", "The A string, to 440 Hz. It's the reference the other strings are tuned from.")]),
 ]
 
+# -------------------------------------------------------------------- diagrams --
+COUNT = {4: "four", 5: "five", 6: "six"}
+
+def diagram_alt(p):
+    flats = p.get("flats", False)
+    notes = " ".join(name(m, flats) for m in p["strings"])
+    return f"Diagram of {p['h1'].replace(' tuner', ' tuning').lower()}: {COUNT.get(len(p['strings']), len(p['strings']))} strings tuned {notes}, from the thickest string to the thinnest."
+
+def diagram_svg(p):
+    flats = p.get("flats", False)
+    ms = p["strings"]; n = len(ms); W, H = 720, 360
+    gap = 92 if n <= 4 else 84 if n == 5 else 76
+    x0 = W / 2 - gap * (n - 1) / 2
+    parts = [f'<rect width="{W}" height="{H}" rx="28" fill="#0d0b1d"/>']
+    for i, m in enumerate(ms):
+        x = x0 + i * gap
+        w = max(1.6, min(6.5, 6.4 - (m - 28) * 0.1))
+        parts.append(f'<line x1="{x:.1f}" y1="36" x2="{x:.1f}" y2="250" stroke="#ffffff" stroke-opacity="0.82" stroke-width="{w:.1f}" stroke-linecap="round"/>')
+        parts.append(f'<text x="{x:.1f}" y="304" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="40" font-weight="600" fill="#ffffff">{name(m, flats)}<tspan font-size="22" font-weight="500" fill-opacity="0.6" dy="4">{octave(m)}</tspan></text>')
+        parts.append(f'<text x="{x:.1f}" y="338" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="19" fill="#9aa3b8">{freq(m):.0f} Hz</text>')
+    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img"><title>{html.escape(diagram_alt(p))}</title>' + "".join(parts) + "</svg>"
+
 # ------------------------------------------------------------------- rendering --
 def rel(depth): return "../" * depth
 
@@ -154,9 +176,13 @@ def table(strings, flats, numbered=True, vs=None):
         change = ""
         if vs:
             d = vs[i] - m
-            change = f"<td>{'no change' if d == 0 else f'{WORDS.get(d, str(d) + ' half steps')} down from {name(vs[i])}'}</td>"
-        rows.append(f"<tr><td>{ORD.get(num, num)}</td><td class='note'>{name(m, flats)}</td><td>{full(m, flats)}</td><td>{freq(m):.2f} Hz</td>{change}</tr>")
-    head = "<th>String</th><th>Note</th><th>Pitch</th><th>Frequency</th>" + ("<th>From standard</th>" if vs else "")
+            if d == 0:
+                change = "<td>no change</td>"
+            else:
+                step = WORDS.get(d, f"{d} half steps")
+                change = f"<td>{name(vs[i])} → {name(m, flats)} <span class='dim'>{step} down</span></td>"
+        rows.append(f"<tr><td>{ORD.get(num, num)}</td><td class='note'>{name(m, flats)}<sub>{octave(m)}</sub></td><td>{freq(m):.2f} Hz</td>{change}</tr>")
+    head = "<th>String</th><th>Note</th><th>Frequency</th>" + ("<th>From standard</th>" if vs else "")
     return f"<table class='notes'><thead><tr>{head}</tr></thead><tbody>{''.join(rows)}</tbody></table>"
 
 def related(current):
@@ -186,7 +212,7 @@ def page(p):
 
     extra = "".join(f"<h3>{html.escape(t)}</h3>{table(s, False)}" for t, s in p.get("extra_tables", []))
     vs = GUITAR_STD if p.get("vs_standard") else None
-    rel_links = "".join(f"<a class='tuning-card' href='{r}{path}/'><span class='t'>{html.escape(label)}</span><span class='n'>{notes}</span></a>"
+    rel_links = "".join(f"<li><a href='{r}{path}/'>{html.escape(label)}</a> <span class='n'>{notes}</span></li>"
                         for path, label, notes in related(p["path"]))
     faq_html = "".join(f"<details><summary>{html.escape(q)}</summary><p>{html.escape(a)}</p></details>" for q, a in p["faq"])
     howto = "".join(f"<li>{s}</li>" for s in p["howto"])
@@ -232,12 +258,14 @@ def page(p):
       </div>
       <div class="wrap wide">
         <div data-strings data-tuning="{p['key']}"></div>
+        <p class="app-line"><a href="{APP_URL}">Lodestone for iPhone</a> shows these strings too, with the one you're tuning lit up. 99¢, once.</p>
       </div>
     </section>
 
     <section class="section tight">
       <div class="wrap">
         <h2>{html.escape(p['h1'].replace(' tuner', ''))} notes and frequencies</h2>
+        <figure class="diagram"><img src="{r}img/tunings/{p['key']}.svg" width="720" height="360" loading="lazy" alt="{html.escape(diagram_alt(p))}" /></figure>
         {table(p['strings'], flats, vs=vs)}
         <p class="table-note">Frequencies use A4 = 440 Hz. Strings are numbered from the thinnest.</p>
         {extra}
@@ -262,7 +290,7 @@ def page(p):
     <section class="section tight">
       <div class="wrap">
         <h2>More tunings</h2>
-        <div class="tuning-grid">{rel_links}</div>
+        <ul class="tuning-list">{rel_links}</ul>
       </div>
     </section>
 
@@ -270,7 +298,7 @@ def page(p):
       <div class="wrap">
         <img class="cta-icon" src="{r}assets/icon-512.png" width="96" height="96" alt="The Lodestone app icon" />
         <h2>Lodestone for iPhone</h2>
-        <p class="lead">A beautiful tuner that opens listening. Pick your instrument to see its strings, with the one you're tuning lit up. 99¢, once. No ads, no accounts, no subscription.</p>
+        <p class="lead">Open Lodestone and play. It's already listening. Pick your instrument to see its strings, with the one you're tuning lit up. 99¢, once. No ads, no accounts, no subscription.</p>
         <a class="appstore" href="{APP_URL}" aria-label="Download Lodestone on the App Store">
           <img src="{r}assets/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" width="160" height="53" alt="Download on the App Store" />
         </a>
@@ -304,4 +332,6 @@ if __name__ == "__main__":
         out = os.path.join(root, p["path"], "index.html")
         os.makedirs(os.path.dirname(out), exist_ok=True)
         open(out, "w").write(page(p))
+        os.makedirs(os.path.join(root, "img", "tunings"), exist_ok=True)
+        open(os.path.join(root, "img", "tunings", p["key"] + ".svg"), "w").write(diagram_svg(p))
         print("wrote", os.path.relpath(out, root))

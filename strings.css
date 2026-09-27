@@ -19,8 +19,8 @@
 .strings-app::before {                     /* the color flood, rising from the strings */
   content: ""; position: absolute; inset: 0; z-index: -1;
   background-color: var(--flood);
-  -webkit-mask: radial-gradient(120% 85% at 50% 88%, #000 0%, transparent 72%);
-          mask: radial-gradient(120% 85% at 50% 88%, #000 0%, transparent 72%);
+  -webkit-mask: radial-gradient(70% 55% at 50% 78%, #000 0%, transparent 78%);
+          mask: radial-gradient(70% 55% at 50% 78%, #000 0%, transparent 78%);
   transition: background-color 0.6s ease;
 }
 .strings-app::after {                      /* in-tune edge glow */
@@ -30,7 +30,7 @@
 }
 .strings-app.in-tune::after { opacity: 1; }
 
-.sa-readout { min-height: 92px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+.sa-readout { min-height: 78px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
 .sa-note {
   font-family: var(--display); font-weight: 200; font-size: 64px; line-height: 1;
   color: #fff; letter-spacing: -0.02em;
