@@ -1,0 +1,96 @@
+/* The strings instrument (js/strings.js): the stage floods with the played
+   note's color, like the app's full-screen color. */
+
+.strings-app {
+  --flood-idle: #151130;
+  --flood: var(--flood-idle);
+  position: relative;
+  isolation: isolate;
+  border-radius: 30px;
+  padding: 22px 14px 18px;
+  background: #0d0b1d;
+  box-shadow: inset 0 0 0 1px var(--hair);
+  overflow: hidden;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+.strings-app::before {                     /* the color flood, rising from the strings */
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background-color: var(--flood);
+  -webkit-mask: radial-gradient(120% 85% at 50% 88%, #000 0%, transparent 72%);
+          mask: radial-gradient(120% 85% at 50% 88%, #000 0%, transparent 72%);
+  transition: background-color 0.6s ease;
+}
+.strings-app::after {                      /* in-tune edge glow */
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  box-shadow: inset 0 0 38px 4px rgba(255, 255, 255, 0.55);
+  opacity: 0; transition: opacity 0.4s ease;
+}
+.strings-app.in-tune::after { opacity: 1; }
+
+.sa-readout { min-height: 92px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+.sa-note {
+  font-family: var(--display); font-weight: 200; font-size: 64px; line-height: 1;
+  color: #fff; letter-spacing: -0.02em;
+}
+.sa-note .acc { font-size: 0.42em; vertical-align: 0.95em; margin-left: 2px; }
+.sa-detail { font-family: var(--display); font-size: 1rem; color: rgba(255, 255, 255, 0.72); margin-top: 6px; min-height: 1.4em; }
+.strings-app.in-tune .sa-detail { color: #fff; }
+
+.sa-stage { position: relative; height: clamp(300px, 46vw, 420px); margin: 4px -14px 0; cursor: pointer; }
+.sa-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.sa-labels { position: absolute; inset: 0; pointer-events: none; }
+.sa-label {
+  position: absolute; transform: translate(-50%, 0);
+  pointer-events: auto; cursor: pointer;
+  font: 600 1.05rem/1 var(--display); color: rgba(255, 255, 255, 0.78);
+  background: none; border: 0; padding: 8px 6px; border-radius: 10px;
+  transition: color 0.2s ease, transform 0.18s ease;
+}
+.sa-label sub { font-size: 0.62em; font-weight: 500; opacity: 0.65; margin-left: 1px; vertical-align: -0.1em; }
+.sa-label:hover, .sa-label.hit { color: #fff; }
+.sa-label.hit { transform: translate(-50%, 0) scale(1.12); }
+.sa-label:focus-visible { outline: 2px solid rgba(255, 255, 255, 0.6); }
+
+.sa-controls { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; margin-top: 18px; }
+.sa-instruments { display: inline-flex; padding: 4px; gap: 2px; border-radius: 999px; background: rgba(255, 255, 255, 0.06); box-shadow: inset 0 0 0 1px var(--hair); }
+.sa-instruments button, .sa-mic, .sa-tuning select {
+  font: 500 0.92rem/1 var(--display); color: rgba(255, 255, 255, 0.72);
+  border: 0; background: none; cursor: pointer; border-radius: 999px;
+}
+.sa-instruments button { padding: 9px 14px; transition: background 0.2s ease, color 0.2s ease; }
+.sa-instruments button.on { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.sa-tuning select {
+  appearance: none; -webkit-appearance: none;
+  padding: 11px 34px 11px 16px; background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px var(--hair); color: #fff; max-width: 100%;
+  background-image: linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.7) 50%), linear-gradient(135deg, rgba(255,255,255,0.7) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 52%, calc(100% - 13px) 52%;
+  background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
+}
+.sa-tuning select option { color: #111; }
+.sa-tuning[hidden] { display: none; }
+.sa-mic {
+  display: inline-flex; align-items: center; gap: 8px; padding: 11px 16px;
+  background: rgba(255, 255, 255, 0.92); color: #0b0917;
+}
+.sa-mic .dot { width: 8px; height: 8px; border-radius: 50%; background: #0b0917; opacity: 0.35; }
+.sa-mic.on { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.sa-mic.on .dot { background: #ff5e5b; opacity: 1; animation: sa-pulse 1.4s ease-in-out infinite; }
+@keyframes sa-pulse { 50% { opacity: 0.35; } }
+.sa-instruments button:focus-visible, .sa-mic:focus-visible, .sa-tuning select:focus-visible { outline: 2px solid rgba(255, 255, 255, 0.6); outline-offset: 2px; }
+.sa-hint { margin: 14px 0 0; font-size: 0.86rem; color: var(--muted); }
+
+.sa-no-webgl .sa-canvas { display: none; }
+.sa-no-webgl .sa-labels { position: static; display: flex; justify-content: center; gap: 6px; padding: 40px 0; }
+.sa-no-webgl .sa-label { position: static; transform: none; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 520px) {
+  .strings-app { border-radius: 24px; }
+  .sa-note { font-size: 54px; }
+  .sa-instruments button { padding: 9px 11px; font-size: 0.88rem; }
+}

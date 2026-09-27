@@ -228,6 +228,8 @@ a:hover { color: #c4d2ff; }
   opacity: 1; transition: opacity 0.4s ease;
 }
 .stage.has-note .wordmark { opacity: 0; }
+h1.wordmark { margin: 0; line-height: 1.5; text-transform: uppercase; text-align: center; }
+.wordmark .wm-sub { display: block; font-weight: 400; letter-spacing: 0.18em; opacity: 0.75; }
 
 /* start / permission overlay */
 .start {
@@ -403,7 +405,7 @@ footer {
   border-top: 1px solid var(--hair); padding: 28px 0 64px; margin-top: 40px;
 }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
-footer nav { display: flex; gap: 22px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
 footer .spacer { flex: 1; }
 footer a { color: var(--soft); }
 
@@ -416,3 +418,7 @@ footer a { color: var(--soft); }
   .stars i, .scroll-cue { animation: none; }
   .stage, .letter, .orb, .cents, .readout, .dial { transition: none; }
 }
+
+/* ----------------------------------------------------------- strings section */
+.strings-section .lead { margin-bottom: 26px; }
+.home-tunings { margin-top: 22px; }

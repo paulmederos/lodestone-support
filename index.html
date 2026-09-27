@@ -3,26 +3,33 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Lodestone — a beautiful guitar tuner</title>
-<meta name="description" content="Lodestone is a beautiful, no-menu tuner for guitar, ukulele, bass and anything with strings. The whole screen responds with color as you lock onto the note. Download it on the App Store, or try the live web tuner." />
+<title>Online Guitar Tuner · Lodestone</title>
+<meta name="description" content="Tune your guitar, bass, ukulele or violin right here in your browser with Lodestone, a beautiful online tuner. See every string's note, hear it, and watch it lock in. The iPhone app is 99¢, once, with no ads." />
+<link rel="canonical" href="https://lodestone.paulmederos.com/" />
 <meta name="theme-color" content="#0b0917" />
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="strings.css" />
+<link rel="stylesheet" href="tunings.css" />
+<script type="importmap">{"imports": {"three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.min.js"}}</script>
 
 <!-- social / link preview -->
-<meta property="og:title" content="Lodestone — a beautiful guitar tuner" />
+<meta property="og:title" content="Lodestone, a beautiful guitar tuner" />
 <meta property="og:description" content="A no-menu tuner for guitar, ukulele, bass and anything with strings. Now on the App Store — open it and play." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://lodestone.paulmederos.com/" />
-<meta property="og:image" content="assets/icon-512.png" />
+<meta property="og:image" content="https://lodestone.paulmederos.com/assets/icon-512.png" />
 <meta name="twitter:card" content="summary" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "Lodestone Guitar Tuner", "operatingSystem": "iOS 17 or later", "applicationCategory": "MultimediaApplication", "url": "https://apps.apple.com/us/app/lodestone-guitar-tuner/id6782477642", "offers": {"@type": "Offer", "price": "0.99", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does Lodestone cost?", "acceptedAnswer": {"@type": "Answer", "text": "The iPhone and iPad app is 99¢, once. There are no ads, no subscription and no account. The tuner on this page is free to use in your browser."}}, {"@type": "Question", "name": "What instruments does it work with?", "acceptedAnswer": {"@type": "Answer", "text": "Anything with strings. Guitar, bass, ukulele and violin have string views and tunings built in. Banjo, mandolin, cello and everything else work in chromatic mode."}}, {"@type": "Question", "name": "What is a chromatic tuner?", "acceptedAnswer": {"@type": "Answer", "text": "A chromatic tuner shows the nearest of all twelve notes, so it works with any instrument and any tuning. Lodestone opens that way; pick an instrument when you want to see its strings."}}, {"@type": "Question", "name": "How accurate is it?", "acceptedAnswer": {"@type": "Answer", "text": "Lodestone's pitch detection was validated to within 0.05 cents on test tones across every guitar, bass and ukulele string."}}, {"@type": "Question", "name": "Does it record my audio?", "acceptedAnswer": {"@type": "Answer", "text": "No. The mic is used only to find the note, live on your device or in your browser. Nothing is recorded, stored, or sent anywhere."}}]}</script>
 </head>
 <body>
 
   <header class="site-head">
     <a class="brand" href="./"><img src="assets/favicon-32.png" alt="" /> lodestone</a>
     <span class="head-actions">
+      <a class="head-link" href="guitar-tuning/">Tunings</a>
       <a class="head-link" href="support.html" data-sheet="supportSheet">Support</a>
       <a class="btn btn-sm" href="https://apps.apple.com/us/app/lodestone-guitar-tuner/id6782477642">Download</a>
     </span>
@@ -61,7 +68,7 @@
       </div>
     </div>
 
-    <div class="wordmark">LODESTONE</div>
+    <h1 class="wordmark">Lodestone <span class="wm-sub">online guitar tuner</span></h1>
     <div class="edge-glow" aria-hidden="true"></div>
 
     <button class="start" id="start" aria-label="Start the tuner with your microphone">
@@ -79,12 +86,13 @@
   <section class="section icon-feature">
     <div class="wrap">
       <img class="icon-hero" src="assets/icon-512.png" width="168" height="168"
-           alt="The Lodestone app icon: a faceted, rainbow-lit stone on a deep indigo field." />
+           alt="The Lodestone app icon: a white ring on violet, its last few particles drifting into place." />
       <p class="eyebrow">Beautiful guitar tuner</p>
       <h2>A compass for your strings</h2>
       <p class="lead">The <em>lodestone</em> is the naturally magnetized rock early
         navigators used as a compass: the thing that finds north. This one finds
-        your note.</p>
+        your note. The icon is the moment it does, when the ring of particles
+        settles and the last few drift into place.</p>
     </div>
   </section>
 
@@ -98,6 +106,32 @@
         are, and a field of particles tightens from a loose cloud into a solid ring
         as you lock in. You're looking at that same engine right above; it's
         Lodestone running in your browser.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ strings -->
+  <section class="section tight strings-section">
+    <div class="wrap">
+      <h2>Every string, lowest to highest</h2>
+      <p class="lead">Forgot what a string should be? Pick your instrument and the
+        strings appear with their notes underneath. Tap one to hear it, or turn on
+        the mic and the string you're tuning lights up, glowing brighter as you get
+        close.</p>
+    </div>
+    <div class="wrap wide">
+      <div data-strings data-tuning="guitar.standard"></div>
+    </div>
+    <div class="wrap">
+      <div class="tuning-grid home-tunings">
+        <a class="tuning-card" href="guitar-tuning/"><span class="t">Standard guitar</span><span class="n">E A D G B E</span></a>
+        <a class="tuning-card" href="guitar-tuning/drop-d/"><span class="t">Drop D</span><span class="n">D A D G B E</span></a>
+        <a class="tuning-card" href="guitar-tuning/drop-c/"><span class="t">Drop C</span><span class="n">C G C F A D</span></a>
+        <a class="tuning-card" href="guitar-tuning/open-g/"><span class="t">Open G</span><span class="n">D G D G B D</span></a>
+        <a class="tuning-card" href="guitar-tuning/dadgad/"><span class="t">DADGAD</span><span class="n">D A D G A D</span></a>
+        <a class="tuning-card" href="bass-tuner/"><span class="t">Bass</span><span class="n">E A D G</span></a>
+        <a class="tuning-card" href="ukulele-tuner/"><span class="t">Ukulele</span><span class="n">G C E A</span></a>
+        <a class="tuning-card" href="violin-tuner/"><span class="t">Violin</span><span class="n">G D A E</span></a>
+      </div>
     </div>
   </section>
 
@@ -126,8 +160,9 @@
         <div class="feature">
           <span class="ic">🎸</span>
           <h3>Anything with strings</h3>
-          <p>It's chromatic, so guitar, ukulele, bass, violin, banjo, mandolin and
-            every alternate tuning are all covered, no instrument to switch.</p>
+          <p>It opens as a chromatic tuner, so it hears anything. Pick guitar, bass,
+            ukulele or violin to see the strings, with Drop D, DADGAD, open G and
+            more built in.</p>
         </div>
         <div class="feature">
           <span class="ic">🔒</span>
@@ -168,6 +203,14 @@
     </div>
   </section>
 
+  <!-- ============================================================ questions -->
+  <section class="section tight">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <div class="faq"><details><summary>How much does Lodestone cost?</summary><p>The iPhone and iPad app is 99¢, once. There are no ads, no subscription and no account. The tuner on this page is free to use in your browser.</p></details><details><summary>What instruments does it work with?</summary><p>Anything with strings. Guitar, bass, ukulele and violin have string views and tunings built in. Banjo, mandolin, cello and everything else work in chromatic mode.</p></details><details><summary>What is a chromatic tuner?</summary><p>A chromatic tuner shows the nearest of all twelve notes, so it works with any instrument and any tuning. Lodestone opens that way; pick an instrument when you want to see its strings.</p></details><details><summary>How accurate is it?</summary><p>Lodestone's pitch detection was validated to within 0.05 cents on test tones across every guitar, bass and ukulele string.</p></details><details><summary>Does it record my audio?</summary><p>No. The mic is used only to find the note, live on your device or in your browser. Nothing is recorded, stored, or sent anywhere.</p></details></div>
+    </div>
+  </section>
+
   <!-- ============================================================ download -->
   <section class="section cta">
     <div class="wrap">
@@ -188,6 +231,10 @@
       <span>© <span id="y"></span> Enchant</span>
       <span class="spacer"></span>
       <nav>
+        <a href="guitar-tuning/">Guitar</a>
+        <a href="bass-tuner/">Bass</a>
+        <a href="ukulele-tuner/">Ukulele</a>
+        <a href="violin-tuner/">Violin</a>
         <a href="support.html" data-sheet="supportSheet">Support</a>
         <a href="privacy.html">Privacy</a>
         <a href="mailto:pvm@enchant.co?subject=Lodestone">Contact</a>
@@ -209,8 +256,8 @@
       <div class="sheet-faq">
         <div class="card">
           <p class="q">What instruments does it work with?</p>
-          <p>It's chromatic, so it hears whatever you play: guitar, ukulele, bass,
-            violin, banjo, mandolin, and every alternate tuning. Nothing to pick.</p>
+          <p>It opens as a chromatic tuner, so it hears whatever you play. To see
+            the strings, pick guitar, bass, ukulele or violin from the menu at the top.</p>
         </div>
         <div class="card">
           <p class="q">Do I need to set anything up?</p>
@@ -229,5 +276,6 @@
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
   <script src="tuner.js"></script>
   <script src="sheet.js"></script>
+  <script type="module" src="js/strings.js"></script>
 </body>
 </html>
